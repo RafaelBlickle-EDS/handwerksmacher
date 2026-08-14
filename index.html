@@ -3,213 +3,972 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hüpfender Dino</title>
+<title>Julis Schreinerei</title>
+<meta name="description" content="Julis Schreinerei in Lichtenstein – Möbel nach Maß, Innenausbau und Restaurierung mit traditionellem Handwerk und persönlicher Beratung.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sky-top: #14342a;
-    --sky-mid: #1f6b4d;
-    --sky-bottom: #5fc496;
-    --ground: #2f7a58;
-    --ground-dark: #1a4a35;
-    --ground-line: #dff5e8;
-    --sun: #ffe28a;
-    --sun-glow: rgba(255, 226, 138, 0.35);
-    --cloud: rgba(255, 255, 255, 0.4);
-    --dino-body: #ff8a5c;
-    --dino-shade: #ef6a41;
-    --dino-belly: #fff2df;
-    --dino-line: #3c2016;
-    --shadow: rgba(10, 30, 20, 0.35);
+    --walnut-950: #1c130d;
+    --walnut-800: #3a2418;
+    --walnut-700: #5c3823;
+    --oak-500: #b9793b;
+    --oak-300: #e0aa6b;
+    --forest-600: #435c46;
+    --forest-500: #547558;
+    --parchment-50: #f7f0e3;
+    --parchment-100: #efe2c8;
+    --ink-900: #2a2018;
+    --ink-600: #6b5c4a;
+    --cream: #fbf6ec;
+
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Work Sans", -apple-system, "Segoe UI", sans-serif;
+
+    --fs-eyebrow: 0.8125rem;
+    --fs-body: 1.0625rem;
+    --fs-lead: 1.25rem;
+    --fs-h3: 1.5rem;
+    --fs-h2: clamp(2rem, 4vw, 2.75rem);
+    --fs-h1: clamp(2.75rem, 6vw, 4.5rem);
+
+    --sp-1: 0.5rem;
+    --sp-2: 1rem;
+    --sp-3: 1.5rem;
+    --sp-4: 2rem;
+    --sp-5: 3rem;
+    --sp-6: 4.5rem;
+    --sp-7: 6rem;
+
+    --radius: 4px;
+    --shadow-warm: 0 20px 40px -18px rgba(28, 19, 13, 0.35);
+    --max-width: 1180px;
   }
 
   * { box-sizing: border-box; }
-
-  html, body {
-    margin: 0;
-    height: 100%;
-    background: var(--sky-mid);
-    overflow: hidden;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    color: var(--ink-900);
+    background: var(--parchment-50);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.12;
+    text-wrap: balance;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p { margin: 0; }
+
+  a { color: inherit; }
+
+  img, svg { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: var(--sp-3);
+    padding-right: var(--sp-3);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--oak-500);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.5em;
+    height: 2px;
+    background: currentColor;
+    display: inline-block;
+  }
+
+  .lead {
+    font-size: var(--fs-lead);
+    color: var(--ink-600);
+    max-width: 40em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: 0.9em 1.7em;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+  .btn:focus-visible { outline: 2px solid var(--oak-300); outline-offset: 3px; }
+
+  .btn--primary {
+    background: var(--oak-500);
+    color: var(--cream);
+    box-shadow: var(--shadow-warm);
+  }
+  .btn--primary:hover { background: var(--oak-300); transform: translateY(-2px); }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(251, 246, 236, 0.4);
+  }
+  .btn--ghost:hover { border-color: var(--oak-300); color: var(--oak-300); }
+
+  .btn--dark {
+    background: var(--walnut-950);
+    color: var(--cream);
+  }
+  .btn--dark:hover { background: var(--oak-500); }
+
+  /* ---------- Header ---------- */
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: var(--sp-3) 0;
+    background: transparent;
+    transition: background 240ms ease, padding 240ms ease, box-shadow 240ms ease;
+  }
+  .site-header.is-scrolled {
+    background: rgba(28, 19, 13, 0.92);
+    backdrop-filter: blur(10px);
+    padding: var(--sp-2) 0;
+    box-shadow: 0 8px 24px -12px rgba(0,0,0,0.4);
+  }
+
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: 0.01em;
+  }
+  .brand-mark em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--oak-300);
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+  }
+  .main-nav ul {
+    display: flex;
+    gap: var(--sp-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .main-nav a {
+    color: rgba(251, 246, 236, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.4em 0.1em;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+  .main-nav a:hover { color: var(--oak-300); border-color: var(--oak-300); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.4em;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+    margin: 5px 0;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--walnut-950) 0%, #2b1c12 55%, #4a2e17 100%);
+    overflow: hidden;
+    color: var(--cream);
+  }
+
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    left: 50%;
+    bottom: 18%;
+    width: 60vw;
+    height: 40vw;
+    max-width: 900px;
+    max-height: 600px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(224, 170, 107, 0.28), transparent 70%);
+    pointer-events: none;
+  }
+
+  .skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    width: 100%;
+    height: auto;
+    color: var(--walnut-950);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding-top: var(--sp-7);
+    padding-bottom: 22vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    max-width: 46rem;
+  }
+
+  .hero-inner .eyebrow { color: var(--oak-300); }
+
+  .hero-inner h1 { color: var(--cream); }
+  .hero-inner h1 em {
+    font-style: italic;
+    color: var(--oak-300);
+    font-weight: 500;
+  }
+
+  .hero-inner .lead { color: rgba(251, 246, 236, 0.82); }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--sp-2);
+    flex-wrap: wrap;
+    margin-top: var(--sp-2);
+  }
+
+  /* ---------- Sections generic ---------- */
+
+  section { position: relative; }
+
+  .section-pad { padding: var(--sp-7) 0; }
+
+  .panel-alt { background: var(--parchment-100); }
+
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    max-width: 40rem;
+    margin-bottom: var(--sp-5);
+  }
+  .section-head h2 { color: var(--ink-900); }
+
+  /* ---------- Services ---------- */
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .service-card {
+    background: var(--cream);
+    border: 1px solid rgba(42, 32, 24, 0.08);
+    border-radius: var(--radius);
+    padding: var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-warm);
+    border-color: var(--oak-300);
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-  }
-
-  .scene {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
-  }
-
-  .sun {
-    position: absolute;
-    top: 10%;
-    right: 12%;
-    width: min(14vw, 140px);
-    height: min(14vw, 140px);
     border-radius: 50%;
-    background: var(--sun);
-    box-shadow: 0 0 0 min(4vw, 40px) var(--sun-glow);
+    background: var(--parchment-100);
+    color: var(--oak-500);
+  }
+  .service-icon svg { width: 22px; height: 22px; }
+
+  .service-card h3 {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+  }
+  .service-card p {
+    color: var(--ink-600);
+    font-size: 0.95rem;
   }
 
-  .cloud {
-    position: absolute;
-    background: var(--cloud);
-    border-radius: 999px;
-    filter: blur(0.5px);
-  }
-  .cloud--a { top: 16%; left: 10%; width: 11vw; height: 3.2vw; min-width: 90px; min-height: 26px; }
-  .cloud--b { top: 26%; left: 22%; width: 7vw; height: 2.2vw; min-width: 60px; min-height: 18px; }
-  .cloud--c { top: 12%; left: 55%; width: 8vw; height: 2.6vw; min-width: 70px; min-height: 20px; }
+  /* ---------- About ---------- */
 
-  .hills {
-    position: absolute;
-    bottom: 16%;
-    left: 0;
-    width: 100%;
-    height: 18vh;
-    fill: var(--ground);
-    opacity: 0.55;
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--sp-6);
+    align-items: center;
   }
 
-  .ground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 16%;
-    background: var(--ground-dark);
-    border-top: min(0.6vw, 6px) solid var(--ground-line);
+  .about-copy { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 34rem; }
+
+  .about-list {
+    list-style: none;
+    margin: var(--sp-1) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75em;
+  }
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7em;
+    font-size: 0.98rem;
+    color: var(--ink-900);
+  }
+  .about-list svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 0.2em;
+    color: var(--forest-600);
   }
 
-  .stage {
-    position: absolute;
-    bottom: 16%;
-    left: 50%;
-    width: min(46vw, 420px);
-    transform: translateX(-50%);
-  }
-
-  .shadow {
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 46%;
-    height: min(2.2vw, 20px);
-    background: var(--shadow);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    animation: shadow-pulse 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  }
-
-  .dino {
+  .grain-panel {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
     position: relative;
-    width: 100%;
-    animation: hop 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
-    transform-origin: bottom center;
+    overflow: hidden;
+    background:
+      repeating-linear-gradient(100deg,
+        #7a4c2b 0 3px,
+        #6b4225 3px 7px,
+        #85562f 7px 11px,
+        #6f4527 11px 16px
+      );
+    box-shadow: var(--shadow-warm);
+  }
+  .grain-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28,19,13,0) 40%, rgba(28,19,13,0.55) 100%);
+  }
+  .grain-caption {
+    position: absolute;
+    left: var(--sp-3);
+    bottom: var(--sp-3);
+    z-index: 2;
+    color: var(--cream);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
   }
 
-  .dino svg {
+  /* ---------- Process ---------- */
+
+  .process {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3);
+  }
+  .process::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 6%;
+    right: 6%;
+    height: 1.5px;
+    background: repeating-linear-gradient(90deg, var(--oak-300) 0 10px, transparent 10px 18px);
+  }
+  .process-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+  .process-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--walnut-950);
+    color: var(--oak-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: var(--sp-1);
+    position: relative;
+    z-index: 1;
+  }
+  .process-step h3 { font-size: 1.15rem; font-weight: 600; }
+  .process-step p { color: var(--ink-600); font-size: 0.92rem; }
+
+  /* ---------- Contact ---------- */
+
+  .contact {
+    background: var(--walnut-950);
+    color: var(--cream);
+  }
+  .contact .eyebrow { color: var(--oak-300); }
+  .contact .section-head h2 { color: var(--cream); }
+  .contact .lead { color: rgba(251,246,236,0.75); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--sp-6);
+    align-items: start;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    margin-bottom: var(--sp-2);
+  }
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(251,246,236,0.85);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.8em 0.9em;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(251,246,236,0.2);
+    background: rgba(251,246,236,0.06);
+    color: var(--cream);
+    transition: border-color 160ms ease, background 160ms ease;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: rgba(251,246,236,0.4); }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--oak-300);
+    background: rgba(251,246,236,0.1);
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-2);
+  }
+  textarea { resize: vertical; min-height: 120px; }
+
+  .form-note {
+    font-size: 0.8rem;
+    color: rgba(251,246,236,0.5);
+    margin-top: var(--sp-1);
+  }
+
+  .info-card {
+    background: var(--walnut-800);
+    border: 1px solid var(--walnut-700);
+    border-radius: var(--radius);
+    padding: var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9em;
+  }
+  .info-row svg {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    color: var(--oak-300);
+    margin-top: 0.15em;
+  }
+  .info-row div { font-size: 0.95rem; line-height: 1.5; }
+  .info-row .info-label {
     display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(251,246,236,0.5);
+    margin-bottom: 0.15em;
+  }
+  .info-card hr {
+    border: none;
+    border-top: 1px solid var(--walnut-700);
+    margin: 0;
   }
 
-  .leg {
-    transform-origin: top center;
-    animation: leg-tuck 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  }
-  .leg--back { animation-delay: -30ms; }
+  /* ---------- Footer ---------- */
 
-  @keyframes hop {
-    0%   { transform: translateY(0) scale(1, 1); }
-    12%  { transform: translateY(2%) scale(1.06, 0.9); }
-    45%  { transform: translateY(-38%) scale(0.96, 1.05); }
-    78%  { transform: translateY(2%) scale(1.06, 0.9); }
-    100% { transform: translateY(0) scale(1, 1); }
+  .site-footer {
+    background: var(--walnut-950);
+    color: rgba(251,246,236,0.65);
+    border-top: 1px solid var(--walnut-700);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: var(--sp-4);
+    padding: var(--sp-6) 0 var(--sp-4);
+  }
+  .footer-brand .brand-mark { color: var(--cream); }
+  .footer-brand p { margin-top: var(--sp-2); font-size: 0.9rem; max-width: 26em; }
+  .footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251,246,236,0.45);
+    margin: 0 0 var(--sp-2);
+  }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6em; }
+  .footer-col a { text-decoration: none; font-size: 0.92rem; color: rgba(251,246,236,0.75); transition: color 160ms ease; }
+  .footer-col a:hover { color: var(--oak-300); }
+  .footer-bottom {
+    border-top: 1px solid var(--walnut-700);
+    padding: var(--sp-2) 0 var(--sp-4);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    font-size: 0.8rem;
   }
 
-  @keyframes shadow-pulse {
-    0%   { opacity: 0.35; transform: translateX(-50%) scale(1); }
-    45%  { opacity: 0.12; transform: translateX(-50%) scale(0.55); }
-    100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 860px) {
+    .main-nav ul { display: none; }
+    .nav-toggle { display: block; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process { grid-template-columns: repeat(2, 1fr); row-gap: var(--sp-4); }
+    .process::before { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+    .field-row { grid-template-columns: 1fr; }
   }
 
-  @keyframes leg-tuck {
-    0%   { transform: rotate(0deg) scaleY(1); }
-    45%  { transform: rotate(-18deg) scaleY(0.7); }
-    100% { transform: rotate(0deg) scaleY(1); }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-inner { padding-bottom: 28vh; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .dino, .leg, .shadow { animation: none; }
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
 <body>
-<div class="scene">
-  <div class="sun"></div>
-  <div class="cloud cloud--a"></div>
-  <div class="cloud cloud--b"></div>
-  <div class="cloud cloud--c"></div>
 
-  <svg class="hills" viewBox="0 0 100 20" preserveAspectRatio="none">
-    <path d="M0 20 L0 10 Q15 2 30 9 T60 8 T100 12 L100 20 Z"></path>
-  </svg>
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">Julis <em>Schreinerei</em></span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn--ghost">Anfrage stellen</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-  <div class="ground"></div>
+<nav id="mobileNav" class="mobile-nav" hidden style="position:fixed; inset:0; z-index:49; background:var(--walnut-950); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
+  <a href="#leistungen" style="color:var(--cream); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Leistungen</a>
+  <a href="#ueber-uns" style="color:var(--cream); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Über uns</a>
+  <a href="#ablauf" style="color:var(--cream); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Ablauf</a>
+  <a href="#kontakt" style="color:var(--cream); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Kontakt</a>
+</nav>
 
-  <div class="stage">
-    <div class="shadow"></div>
-    <div class="dino">
-      <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
-        <!-- tail -->
-        <path d="M60 118 C30 108 18 92 22 76 C34 84 48 96 66 108 Z"
-              fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4" stroke-linejoin="round"/>
+<main id="top">
 
-        <!-- back legs -->
-        <g class="leg leg--back">
-          <rect x="118" y="128" width="20" height="34" rx="8" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="4"/>
-        </g>
-        <!-- front legs -->
-        <g class="leg">
-          <rect x="160" y="128" width="20" height="34" rx="8" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
-        </g>
+  <section class="hero">
+    <svg class="hero-grain" width="0" height="0">
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.72  0 0 0 0 0.47  0 0 0 0 0.24  0 0 0 0.05 0"></feColorMatrix>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain)"></rect>
+    </svg>
+    <div class="hero-glow"></div>
 
-        <!-- body -->
-        <ellipse cx="130" cy="104" rx="66" ry="46" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
-        <!-- belly -->
-        <ellipse cx="128" cy="122" rx="42" ry="24" fill="var(--dino-belly)"/>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Schreinerei in Lichtenstein · Schwäbische Alb</span>
+      <h1>Handwerk, das <em>trägt</em> — von der Werkstatt bis ins Wohnzimmer</h1>
+      <p class="lead">Julis Schreinerei fertigt Möbel, Innenausbau und Maßarbeiten aus Massivholz — geplant, gebaut und montiert direkt in Lichtenstein, mit einem Blick fürs Detail und dem Anspruch, dass es Generationen hält.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn--primary">Projekt anfragen</a>
+        <a href="#leistungen" class="btn btn--ghost">Leistungen entdecken</a>
+      </div>
+    </div>
 
-        <!-- spikes -->
-        <polygon points="86,64 96,44 104,66" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
-        <polygon points="106,58 116,36 124,60" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
-        <polygon points="126,58 136,38 144,60" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
+    <svg class="skyline" viewBox="0 0 1200 320" preserveAspectRatio="none" aria-hidden="true">
+      <polygon fill="currentColor" points="0,320 0,260 40,255 70,230 110,235 140,200 180,205 220,175 260,180 300,150 340,158 380,140 420,150 460,215 500,205 520,200 740,200 760,210 800,180 840,190 880,160 920,168 960,140 1000,150 1040,190 1080,185 1120,230 1160,225 1200,260 1200,320" />
+      <!-- keep / great hall -->
+      <rect fill="currentColor" x="560" y="140" width="140" height="60" />
+      <rect fill="currentColor" x="680" y="150" width="55" height="50" />
+      <!-- central tower + spire -->
+      <rect fill="currentColor" x="610" y="70" width="44" height="80" />
+      <polygon fill="currentColor" points="606,70 658,70 632,24" />
+      <line x1="632" y1="24" x2="632" y2="8" stroke="currentColor" stroke-width="2" />
+      <polygon fill="currentColor" points="632,8 646,14 632,20" />
+      <!-- left turret -->
+      <rect fill="currentColor" x="518" y="130" width="26" height="70" />
+      <polygon fill="currentColor" points="514,130 548,130 531,92" />
+      <!-- right turret -->
+      <rect fill="currentColor" x="700" y="120" width="26" height="80" />
+      <polygon fill="currentColor" points="696,120 730,120 713,82" />
+      <!-- lit windows -->
+      <rect fill="var(--oak-300)" opacity="0.85" x="624" y="95" width="8" height="12" />
+      <rect fill="var(--oak-300)" opacity="0.75" x="580" y="160" width="8" height="10" />
+      <rect fill="var(--oak-300)" opacity="0.75" x="650" y="160" width="8" height="10" />
+      <rect fill="var(--oak-300)" opacity="0.7" x="708" y="145" width="6" height="9" />
+    </svg>
+  </section>
 
-        <!-- head -->
-        <circle cx="182" cy="76" r="34" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
-        <!-- snout -->
-        <path d="M204 66 Q222 68 220 84 Q212 90 198 86 Z" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4" stroke-linejoin="round"/>
-        <!-- jaw -->
-        <path d="M200 88 Q214 92 218 86" fill="none" stroke="var(--dino-line)" stroke-width="3.5" stroke-linecap="round"/>
+  <section id="leistungen" class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Vom Einzelstück bis zum kompletten Innenausbau</h2>
+        <p class="lead">Jedes Projekt beginnt mit Holz, Maß und einem genauen Blick auf den Raum, in dem es später steht.</p>
+      </div>
 
-        <!-- eye -->
-        <circle cx="192" cy="66" r="7" fill="#fff" stroke="var(--dino-line)" stroke-width="2.5"/>
-        <circle cx="194" cy="66" r="3" fill="var(--dino-line)"/>
+      <div class="services-grid">
 
-        <!-- little arm -->
-        <path d="M158 108 Q148 118 154 128" fill="none" stroke="var(--dino-line)" stroke-width="5" stroke-linecap="round"/>
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="9" width="18" height="6" rx="1"></rect>
+              <line x1="7" y1="9" x2="7" y2="12"></line>
+              <line x1="11" y1="9" x2="11" y2="13"></line>
+              <line x1="15" y1="9" x2="15" y2="12"></line>
+              <line x1="19" y1="9" x2="19" y2="13"></line>
+            </svg>
+          </div>
+          <h3>Möbel nach Maß</h3>
+          <p>Tische, Schränke, Regale und Sitzmöbel — entworfen für den Raum, in dem sie stehen, und für die Menschen, die sie nutzen.</p>
+        </article>
 
-        <!-- cheek blush -->
-        <ellipse cx="176" cy="84" rx="7" ry="4" fill="var(--dino-shade)" opacity="0.5"/>
-      </svg>
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="1"></rect>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+              <line x1="4" y1="15" x2="20" y2="15"></line>
+              <line x1="10" y1="3" x2="10" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Innenausbau</h3>
+          <p>Einbauküchen, Wandverkleidungen und durchdachte Raumlösungen — vom Entwurf bis zur letzten Fuge.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="1"></rect>
+              <circle cx="15" cy="12" r="0.8" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </div>
+          <h3>Türen &amp; Fenster</h3>
+          <p>Fertigung, Austausch und Restaurierung von Holztüren und Fensterelementen — passgenau und dauerhaft dicht.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4,20 4,16 9,16 9,12 14,12 14,8 20,8 20,4"></polyline>
+            </svg>
+          </div>
+          <h3>Treppenbau</h3>
+          <p>Maßgefertigte Holztreppen, die sich sauber ins Raumkonzept einfügen — von der Statik bis zum Handlauf.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3l7 7-8.5 8.5a3 3 0 01-1.5.8l-4 .8.8-4a3 3 0 01.8-1.5L17 6"></path>
+              <line x1="12.5" y1="5.5" x2="15.5" y2="8.5"></line>
+            </svg>
+          </div>
+          <h3>Restaurierung</h3>
+          <p>Historische Möbel und Bauteile behutsam aufarbeiten — Charakter erhalten, Funktion erneuern.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a4 4 0 015.6 5.6L13 19.2 4.8 21l1.8-8.2z"></path>
+              <line x1="13" y1="9" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <h3>Reparaturservice</h3>
+          <p>Schnelle, unkomplizierte Hilfe bei Schäden an Holzelementen im Haus — von der Zarge bis zur Terrassendiele.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-uns" class="section-pad panel-alt">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">Über uns</span>
+        <h2>Traditionelles Handwerk, mitten auf der Alb zu Hause</h2>
+        <p class="lead">Julis Schreinerei ist eine Werkstatt für alle, die Wert auf ehrliches Material und saubere Verarbeitung legen. Jedes Stück wird in Lichtenstein geplant und gefertigt — mit Rücksicht auf Holzart, Maserung und den Ort, an dem es am Ende steht.</p>
+        <p>Von der ersten Skizze bis zur Montage bleibt die Arbeit in einer Hand. Das schafft kurze Wege, klare Absprachen und Möbel, die zur Wohnung passen — nicht umgekehrt.</p>
+        <ul class="about-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Massivholz und regionale Materialien, wo immer möglich
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Maßanfertigung statt Katalogware
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Persönliche Beratung von der Idee bis zur Übergabe
+          </li>
+        </ul>
+      </div>
+      <div class="grain-panel">
+        <span class="grain-caption">Werkstatt in Lichtenstein</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf" class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ablauf</span>
+        <h2>Vier Schritte bis zum fertigen Stück</h2>
+      </div>
+      <div class="process">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h3>Beratung</h3>
+          <p>Wir besprechen Ihre Idee, den Raum und das gewünschte Material — vor Ort oder in der Werkstatt.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h3>Planung &amp; Entwurf</h3>
+          <p>Maße, Konstruktion und Holzauswahl werden festgelegt und mit Ihnen abgestimmt.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h3>Fertigung</h3>
+          <p>Ihr Stück entsteht in der Werkstatt — mit traditionellen Techniken und sorgfältiger Verarbeitung.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h3>Montage &amp; Übergabe</h3>
+          <p>Lieferung, Aufbau und letzter Feinschliff direkt bei Ihnen zu Hause.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="section-pad contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Erzählen Sie uns von Ihrem Projekt</h2>
+        <p class="lead">Ob neue Küche, Einzelmöbel oder Restaurierung — schreiben Sie uns kurz, worum es geht. Wir melden uns zeitnah mit einer Einschätzung zurück.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form action="mailto:info@julis-schreinerei.de" method="post" enctype="text/plain">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="Name" placeholder="Ihr Name" required>
+            </div>
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="E-Mail" placeholder="ihre@email.de" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Telefon (optional)</label>
+              <input type="tel" id="phone" name="Telefon" placeholder="0712 9 / 12 34 56">
+            </div>
+            <div class="field">
+              <label for="subject">Betreff</label>
+              <select id="subject" name="Betreff">
+                <option>Möbel nach Maß</option>
+                <option>Innenausbau</option>
+                <option>Türen &amp; Fenster</option>
+                <option>Treppenbau</option>
+                <option>Restaurierung</option>
+                <option>Reparaturservice</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="Nachricht" placeholder="Erzählen Sie uns kurz von Ihrem Projekt …" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Nachricht senden</button>
+          <p class="form-note">Öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an die Werkstatt.</p>
+        </form>
+
+        <aside class="info-card">
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div><span class="info-label">Werkstatt</span>Musterstraße 12, 72805 Lichtenstein</div>
+          </div>
+          <hr>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"></path></svg>
+            <div><span class="info-label">Telefon</span>07129 / 12 34 56</div>
+          </div>
+          <hr>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><polyline points="4 4 12 13 20 4"></polyline></svg>
+            <div><span class="info-label">E-Mail</span>info@julis-schreinerei.de</div>
+          </div>
+          <hr>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>
+            <div><span class="info-label">Werkstattzeiten</span>Mo–Fr 8:00–17:00 Uhr, Termine nach Vereinbarung</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark">Julis <em>Schreinerei</em></span>
+      <p>Möbel, Innenausbau und Restaurierung aus Massivholz — handgefertigt in Lichtenstein auf der Schwäbischen Alb.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li>Musterstraße 12, 72805 Lichtenstein</li>
+        <li>07129 / 12 34 56</li>
+        <li>info@julis-schreinerei.de</li>
+      </ul>
     </div>
   </div>
-</div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Julis Schreinerei</span>
+    <span>Schwäbische Alb · Baden-Württemberg</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var header = document.getElementById('siteHeader');
+  var onScroll = function () {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', function () {
+    var isOpen = !mobileNav.hidden;
+    mobileNav.hidden = isOpen;
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileNav.hidden = true;
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
 </body>
 </html>
