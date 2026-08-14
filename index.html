@@ -153,6 +153,26 @@
   .nav-toggle { display: none; background: none; border: none; padding: 0.4em; cursor: pointer; }
   .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; }
 
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    display: flex;
+  }
+  .mobile-nav[hidden] { display: none; }
+  .mobile-nav a {
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+  .mobile-nav a:hover { color: var(--oak-deep); }
+
   /* ---------- Hero ---------- */
 
   .hero { position: relative; overflow: hidden; background: linear-gradient(180deg, #fbf8ee 0%, #f2ecd6 60%, var(--forest-light) 100%); }
@@ -453,12 +473,12 @@
   </div>
 </header>
 
-<nav id="mobileNav" class="mobile-nav" hidden style="position:fixed; inset:0; z-index:49; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
-  <a href="#leistungen" style="color:var(--ink); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Leistungen</a>
-  <a href="#referenzen" style="color:var(--ink); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Referenzen</a>
-  <a href="#ueber-uns" style="color:var(--ink); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Über uns</a>
-  <a href="#ablauf" style="color:var(--ink); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Ablauf</a>
-  <a href="#kontakt" style="color:var(--ink); font-family:var(--font-display); font-size:1.6rem; text-decoration:none;">Kontakt</a>
+<nav id="mobileNav" class="mobile-nav" hidden>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#referenzen">Referenzen</a>
+  <a href="#ueber-uns">Über uns</a>
+  <a href="#ablauf">Ablauf</a>
+  <a href="#kontakt">Kontakt</a>
 </nav>
 
 <main id="top">
