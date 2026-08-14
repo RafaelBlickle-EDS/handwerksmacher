@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hüpfender Dino</title>
+<style>
+  :root {
+    --sky-top: #14342a;
+    --sky-mid: #1f6b4d;
+    --sky-bottom: #5fc496;
+    --ground: #2f7a58;
+    --ground-dark: #1a4a35;
+    --ground-line: #dff5e8;
+    --sun: #ffe28a;
+    --sun-glow: rgba(255, 226, 138, 0.35);
+    --cloud: rgba(255, 255, 255, 0.4);
+    --dino-body: #ff8a5c;
+    --dino-shade: #ef6a41;
+    --dino-belly: #fff2df;
+    --dino-line: #3c2016;
+    --shadow: rgba(10, 30, 20, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--sky-mid);
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
+  }
+
+  .sun {
+    position: absolute;
+    top: 10%;
+    right: 12%;
+    width: min(14vw, 140px);
+    height: min(14vw, 140px);
+    border-radius: 50%;
+    background: var(--sun);
+    box-shadow: 0 0 0 min(4vw, 40px) var(--sun-glow);
+  }
+
+  .cloud {
+    position: absolute;
+    background: var(--cloud);
+    border-radius: 999px;
+    filter: blur(0.5px);
+  }
+  .cloud--a { top: 16%; left: 10%; width: 11vw; height: 3.2vw; min-width: 90px; min-height: 26px; }
+  .cloud--b { top: 26%; left: 22%; width: 7vw; height: 2.2vw; min-width: 60px; min-height: 18px; }
+  .cloud--c { top: 12%; left: 55%; width: 8vw; height: 2.6vw; min-width: 70px; min-height: 20px; }
+
+  .hills {
+    position: absolute;
+    bottom: 16%;
+    left: 0;
+    width: 100%;
+    height: 18vh;
+    fill: var(--ground);
+    opacity: 0.55;
+  }
+
+  .ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16%;
+    background: var(--ground-dark);
+    border-top: min(0.6vw, 6px) solid var(--ground-line);
+  }
+
+  .stage {
+    position: absolute;
+    bottom: 16%;
+    left: 50%;
+    width: min(46vw, 420px);
+    transform: translateX(-50%);
+  }
+
+  .shadow {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 46%;
+    height: min(2.2vw, 20px);
+    background: var(--shadow);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: shadow-pulse 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  .dino {
+    position: relative;
+    width: 100%;
+    animation: hop 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    transform-origin: bottom center;
+  }
+
+  .dino svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .leg {
+    transform-origin: top center;
+    animation: leg-tuck 900ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .leg--back { animation-delay: -30ms; }
+
+  @keyframes hop {
+    0%   { transform: translateY(0) scale(1, 1); }
+    12%  { transform: translateY(2%) scale(1.06, 0.9); }
+    45%  { transform: translateY(-38%) scale(0.96, 1.05); }
+    78%  { transform: translateY(2%) scale(1.06, 0.9); }
+    100% { transform: translateY(0) scale(1, 1); }
+  }
+
+  @keyframes shadow-pulse {
+    0%   { opacity: 0.35; transform: translateX(-50%) scale(1); }
+    45%  { opacity: 0.12; transform: translateX(-50%) scale(0.55); }
+    100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+  }
+
+  @keyframes leg-tuck {
+    0%   { transform: rotate(0deg) scaleY(1); }
+    45%  { transform: rotate(-18deg) scaleY(0.7); }
+    100% { transform: rotate(0deg) scaleY(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dino, .leg, .shadow { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="sun"></div>
+  <div class="cloud cloud--a"></div>
+  <div class="cloud cloud--b"></div>
+  <div class="cloud cloud--c"></div>
+
+  <svg class="hills" viewBox="0 0 100 20" preserveAspectRatio="none">
+    <path d="M0 20 L0 10 Q15 2 30 9 T60 8 T100 12 L100 20 Z"></path>
+  </svg>
+
+  <div class="ground"></div>
+
+  <div class="stage">
+    <div class="shadow"></div>
+    <div class="dino">
+      <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+        <!-- tail -->
+        <path d="M60 118 C30 108 18 92 22 76 C34 84 48 96 66 108 Z"
+              fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4" stroke-linejoin="round"/>
+
+        <!-- back legs -->
+        <g class="leg leg--back">
+          <rect x="118" y="128" width="20" height="34" rx="8" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="4"/>
+        </g>
+        <!-- front legs -->
+        <g class="leg">
+          <rect x="160" y="128" width="20" height="34" rx="8" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
+        </g>
+
+        <!-- body -->
+        <ellipse cx="130" cy="104" rx="66" ry="46" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
+        <!-- belly -->
+        <ellipse cx="128" cy="122" rx="42" ry="24" fill="var(--dino-belly)"/>
+
+        <!-- spikes -->
+        <polygon points="86,64 96,44 104,66" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
+        <polygon points="106,58 116,36 124,60" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
+        <polygon points="126,58 136,38 144,60" fill="var(--dino-shade)" stroke="var(--dino-line)" stroke-width="3.5" stroke-linejoin="round"/>
+
+        <!-- head -->
+        <circle cx="182" cy="76" r="34" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4"/>
+        <!-- snout -->
+        <path d="M204 66 Q222 68 220 84 Q212 90 198 86 Z" fill="var(--dino-body)" stroke="var(--dino-line)" stroke-width="4" stroke-linejoin="round"/>
+        <!-- jaw -->
+        <path d="M200 88 Q214 92 218 86" fill="none" stroke="var(--dino-line)" stroke-width="3.5" stroke-linecap="round"/>
+
+        <!-- eye -->
+        <circle cx="192" cy="66" r="7" fill="#fff" stroke="var(--dino-line)" stroke-width="2.5"/>
+        <circle cx="194" cy="66" r="3" fill="var(--dino-line)"/>
+
+        <!-- little arm -->
+        <path d="M158 108 Q148 118 154 128" fill="none" stroke="var(--dino-line)" stroke-width="5" stroke-linecap="round"/>
+
+        <!-- cheek blush -->
+        <ellipse cx="176" cy="84" rx="7" ry="4" fill="var(--dino-shade)" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>
