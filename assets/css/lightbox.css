@@ -3,3 +3,14 @@
 .lb-overlay img{max-width:94%;max-height:86%;box-shadow:0 8px 30px rgba(0,0,0,0.6);border-radius:8px}
 .lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:20px;background:rgba(0,0,0,0.25);border-radius:8px;padding:6px 10px;cursor:pointer}
 .lb-caption{position:absolute;left:24px;right:24px;bottom:30px;color:#fff;text-align:center;font-size:14px}
+
+/* Prev/Next buttons */
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:#fff;background:rgba(0,0,0,0.28);border-radius:8px;padding:10px;cursor:pointer;font-size:18px}
+.lb-prev{left:18px}
+.lb-next{right:18px}
+.lb-prev:hover,.lb-next:hover{background:rgba(0,0,0,0.45)}
+
+@media(max-width:520px){
+	.lb-caption{font-size:13px;bottom:18px}
+	.lb-prev,.lb-next{padding:8px;font-size:16px}
+}

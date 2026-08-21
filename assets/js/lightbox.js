@@ -3,9 +3,11 @@
     var overlay = document.querySelector('.lb-overlay');
     if(overlay) return overlay;
     overlay = document.createElement('div'); overlay.className='lb-overlay';
-    overlay.innerHTML = '<div class="lb-close" aria-label="Schließen">✕</div><img alt=""><div class="lb-caption"></div>';
+    overlay.innerHTML = '<div class="lb-close" aria-label="Schließen">✕</div><div class="lb-prev" aria-label="Vorheriges">‹</div><div class="lb-next" aria-label="Nächstes">›</div><img alt=""><div class="lb-caption"></div>';
     document.body.appendChild(overlay);
     overlay.addEventListener('click', function(ev){ if(ev.target===overlay || ev.target.classList.contains('lb-close')) overlay.classList.remove('open'); });
+    overlay.querySelector('.lb-prev').addEventListener('click', function(ev){ ev.stopPropagation(); navigate(-1); });
+    overlay.querySelector('.lb-next').addEventListener('click', function(ev){ ev.stopPropagation(); navigate(1); });
     return overlay;
   }
 
@@ -20,6 +22,16 @@
   }
 
   var current = null;
+
+  function navigate(dir){
+    var items = Array.from(document.querySelectorAll('a.lb'));
+    if(!items.length) return;
+    var idx = items.findIndex(function(a){ return a.getAttribute('href')===current; });
+    if(idx === -1) idx = 0;
+    var nextIndex = (idx + dir + items.length) % items.length;
+    var next = items[nextIndex];
+    open(next.getAttribute('href'), (next.querySelector('img')||{}).alt || '');
+  }
 
   document.addEventListener('click', function(e){
     var t = e.target.closest && e.target.closest('a.lb');
