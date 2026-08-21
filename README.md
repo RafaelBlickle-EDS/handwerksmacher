@@ -21,3 +21,4 @@ Lightbox controls: click image → opens overlay; use `ESC` to close; use left/r
 ToDo / Next steps
 - Replace raster logo with hand-crafted SVG if needed.
 - Optionally convert thumbnails to modern formats on build (e.g. WebP/AVIF) in pipeline above.
+Fri Aug 21 14:30:57 UTC 2026
