@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="de">
+<<<<<<< HEAD
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -138,407 +139,159 @@
   .brand-mark em { font-style: italic; font-weight: 500; color: var(--oak-deep); }
 
   .main-nav { display: flex; align-items: center; gap: var(--sp-4); }
-  .main-nav ul { display: flex; gap: var(--sp-3); list-style: none; margin: 0; padding: 0; }
-  .main-nav a {
-    color: var(--ink);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.4em 0.1em;
-    border-bottom: 1.5px solid transparent;
-    transition: border-color 160ms ease, color 160ms ease;
-  }
-  .main-nav a:hover { color: var(--oak-deep); border-color: var(--oak); }
+  <!doctype html>
+  <html lang="de">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Tröster Haustechnik — Sanitär · Heizung · Bauflaschnerei</title>
+      <meta name="description" content="Tröster Haustechnik GmbH & Co. KG — Meisterbetrieb für Sanitär-, Heizungs- und Flaschnerarbeiten in Lichtenstein-Holzelfingen.">
+      <style>
+        :root{
+          --bg:#f7f7f8;
+          --accent:#0b6b4a;
+          --muted:#6b7280;
+          --card:#ffffff;
+          --radius:8px;
+          --max-width:1100px;
+          font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        body{margin:0;background:var(--bg);color:#111;line-height:1.45}
+        a{color:var(--accent);text-decoration:none}
+        header{background:linear-gradient(180deg,rgba(11,107,74,0.06),transparent);border-bottom:1px solid rgba(11,107,74,0.06)}
+        .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+        .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{width:56px;height:56px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+        nav a{margin-left:18px;color:var(--muted);font-weight:600}
 
-  .nav-toggle { display: none; background: none; border: none; padding: 0.4em; cursor: pointer; }
-  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; }
+        .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:36px 0}
+        .hero-inner{display:flex;flex-direction:column;gap:18px}
+        .h-title{font-size:28px;margin:0}
+        .h-sub{color:var(--muted);margin:0}
+        .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;font-weight:700}
+        .hero-visual{border-radius:12px;overflow:hidden;background:#ddd}
+        .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
 
-  .mobile-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    background: var(--bg);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    display: flex;
-  }
-  .mobile-nav[hidden] { display: none; }
-  .mobile-nav a {
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    text-decoration: none;
-  }
-  .mobile-nav a:hover { color: var(--oak-deep); }
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+        .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(16,24,40,0.04)}
+        .card h3{margin:0 0 8px 0}
+        .muted{color:var(--muted);font-size:15px}
 
-  /* ---------- Hero ---------- */
+        .contact{display:flex;flex-direction:column;gap:12px}
+        footer{padding:24px 0;color:var(--muted);font-size:14px}
 
-  .hero { position: relative; overflow: hidden; background: linear-gradient(180deg, #fbf8ee 0%, #f2ecd6 60%, var(--forest-light) 100%); }
+        @media(min-width:760px){
+          .hero{grid-template-columns:1fr 460px}
+          .h-title{font-size:34px}
+        }
+        @media(max-width:759px){
+          nav a{margin-left:12px;font-size:14px}
+          .grid{grid-template-columns:1fr}
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <div class="container top">
+          <div class="brand">
+            <div class="logo"><img src="assets/images/logo.svg" alt="Tröster Haustechnik" style="height:56px;display:block"></div>
+            <div>
+              <div style="font-weight:700">Tröster Haustechnik</div>
+              <div class="muted" style="font-size:13px">Sanitär · Heizung · Bauflaschnerei</div>
+            </div>
+          </div>
+          <nav aria-label="Hauptnavigation">
+            <a href="leistungen.html">Leistungen</a>
+            <a href="projekte.html">Projekte</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
+      </header>
 
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    padding-top: var(--sp-6);
-    padding-bottom: var(--sp-3);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--sp-3);
-    max-width: 42rem;
-  }
-  .hero-inner h1 em { font-style: italic; color: var(--oak-deep); font-weight: 500; }
-  .hero-actions { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-1); }
+      <main class="container">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-inner">
+            <h1 id="hero-title" class="h-title">Ihr Meisterbetrieb für Sanitär- und Heizungstechnik</h1>
+            <p class="h-sub">Tröster Haustechnik GmbH & Co. KG — fachkundige Planung, Installation und Wartung für Privat und Gewerbe.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="cta" href="#kontakt">Kostenlos anfragen</a>
+              <a href="#leistungen" style="align-self:center;color:var(--muted);font-weight:600">Mehr zu unseren Leistungen</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <picture>
+              <source srcset="assets/images/hero-1200.jpg 1200w, assets/images/hero-480.jpg 480w" sizes="(min-width:760px) 460px, 100%">
+              <img src="assets/images/hero-1200.jpg" alt="Heizungstechnik">
+            </picture>
+          </div>
+        </section>
 
-  .trust-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-    padding: var(--sp-2) 0 var(--sp-4);
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--forest-deep);
-  }
-  .trust-item svg { width: 18px; height: 18px; color: var(--oak); flex: none; }
+        <section id="leistungen">
+          <h2 style="margin-top:28px">Unsere Leistungen</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Heizung</h3>
+              <p class="muted">Planung, Installation und Wartung von Heizungssystemen in Wohn- und Gewerbegebäuden.</p>
+              <p><a href="https://www.troester-haustechnik.de/heizungs-projekte">Unsere Projekte →</a></p>
+            </article>
 
-  .skyline-wrap { position: relative; z-index: 1; }
-  .skyline { width: 100%; height: auto; display: block; }
-  .sun-glow {
-    position: absolute;
-    top: 6%;
-    right: 8%;
-    width: min(16vw, 160px);
-    height: min(16vw, 160px);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(240, 218, 185, 0.9), rgba(240, 218, 185, 0) 70%);
-  }
+            <article class="card">
+              <h3>Sanitär</h3>
+              <p class="muted">Rohrleitungen, Armaturen und komplette Sanitäranlagen: Toiletten, Waschbecken, Duschen, Badewannen und Spülen.</p>
+              <p><a href="https://www.troester-haustechnik.de/sanit%C3%A4r">Unsere Projekte →</a></p>
+            </article>
 
-  /* ---------- Sections generic ---------- */
+            <article class="card">
+              <h3>Bauflaschnerei</h3>
+              <p class="muted">Blecharbeiten aus Kupfer, Aluminium und Zink: Dachrinnen, Abdeckungen und Verkleidungen.</p>
+              <p><a href="https://www.troester-haustechnik.de/bauflaschnerei-projekte">Unsere Projekte →</a></p>
+            </article>
+          </div>
+        </section>
 
-  section { position: relative; }
-  .section-pad { padding: var(--sp-6) 0; }
-  .panel-alt { background: var(--surface-alt); }
-  .panel-forest { background: var(--forest-light); }
+        <section id="projekte" style="margin-top:28px">
+          <h2>Ausgewählte Projekte</h2>
+          <div class="grid">
+            <article class="card">
+              <a href="projekte.html"><img src="assets/images/thumbs/heating-463904_1920-600.jpg" alt="Heizung Projekt" style="width:100%;border-radius:6px"></a>
+            </article>
+            <article class="card">
+              <a href="projekte.html"><img src="assets/images/thumbs/pliers-4180918_1920-600.jpg" alt="Flaschnerei Projekt" style="width:100%;border-radius:6px"></a>
+            </article>
+            <article class="card">
+              <a href="projekte.html"><img src="assets/images/thumbs/pexels-photo-3315291-1920w-600.jpg" alt="Sanitär Projekt" style="width:100%;border-radius:6px"></a>
+            </article>
+          </div>
+          <div style="margin-top:12px"><a href="projekte.html" class="cta">Alle Projekte ansehen</a></div>
+        </section>
 
-  .section-head { display: flex; flex-direction: column; gap: var(--sp-2); max-width: 40rem; margin-bottom: var(--sp-5); }
-  .section-head.centered { margin-left: auto; margin-right: auto; text-align: center; align-items: center; }
+        <section id="kontakt" style="margin-top:28px">
+          <h2>Kontakt</h2>
+          <div class="card contact" style="max-width:520px">
+            <div style="font-weight:700">Tröster Haustechnik GmbH & Co. KG</div>
+            <div class="muted">Im Städtle 3 · 72805 Lichtenstein-Holzelfingen</div>
+            <div>Telefon: <a href="tel:071296009501">07129/6009501</a></div>
+            <div>Email: <a href="mailto:info@troester-haustechnik.de">info@troester-haustechnik.de</a></div>
+            <div class="muted">Geschäftszeiten: Mo–Fr 08:30–17:00</div>
+            <div style="margin-top:8px"><a class="cta" href="mailto:info@troester-haustechnik.de">E-Mail schreiben</a></div>
+          </div>
+        </section>
+      </main>
 
-  /* ---------- Services ---------- */
-
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }
-
-  .service-card {
-    position: relative;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: var(--sp-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-2);
-    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-  }
-  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-warm); border-color: var(--oak); }
-
-  .service-tag {
-    position: absolute;
-    top: var(--sp-2);
-    right: var(--sp-2);
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--oak-deep);
-    background: var(--oak-light);
-    padding: 0.3em 0.6em;
-    border-radius: 999px;
-  }
-
-  .service-icon {
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    background: var(--forest-light);
-    color: var(--forest);
-  }
-  .service-icon svg { width: 22px; height: 22px; }
-  .service-card h3 { font-size: var(--fs-h3); font-weight: 600; }
-  .service-card p { color: var(--ink-muted); font-size: 0.95rem; }
-
-  /* ---------- Portfolio ---------- */
-
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }
-  .portfolio-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
-  .portfolio-thumb {
-    aspect-ratio: 4 / 3;
-    position: relative;
-    background: repeating-linear-gradient(115deg, var(--tone-a, #c99a5c) 0 4px, var(--tone-b, #b9863f) 4px 9px, var(--tone-c, #d6ab6f) 9px 14px);
-  }
-  .portfolio-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,42,32,0) 55%, rgba(38,42,32,0.45) 100%); }
-  .portfolio-cat {
-    position: absolute; left: var(--sp-2); top: var(--sp-2);
-    font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
-    background: rgba(255,253,247,0.9); color: var(--forest-deep);
-    padding: 0.3em 0.6em; border-radius: 999px;
-  }
-  .portfolio-body { padding: var(--sp-3); display: flex; flex-direction: column; gap: 0.3em; }
-  .portfolio-body h3 { font-size: 1.1rem; font-weight: 600; }
-  .portfolio-body span { font-size: 0.85rem; color: var(--ink-muted); }
-
-  .p-1 { --tone-a: #d9b077; --tone-b: #c4924f; --tone-c: #e3c491; }
-  .p-2 { --tone-a: #b9793b; --tone-b: #935f2c; --tone-c: #cf9958; }
-  .p-3 { --tone-a: #8a6a41; --tone-b: #6f5330; --tone-c: #a1815a; }
-  .p-4 { --tone-a: #c99a5c; --tone-b: #a97b3f; --tone-c: #dcb47c; }
-  .p-5 { --tone-a: #7c5a34; --tone-b: #5f4526; --tone-c: #97744a; }
-  .p-6 { --tone-a: #cf9958; --tone-b: #b17f42; --tone-c: #e2bb84; }
-
-  /* ---------- About ---------- */
-
-  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--sp-6); align-items: start; }
-  .about-copy { display: flex; flex-direction: column; gap: var(--sp-3); }
-
-  .about-list { list-style: none; margin: 0.25rem 0 0; padding: 0; display: grid; gap: 0.75em; }
-  .about-list li { display: flex; align-items: flex-start; gap: 0.7em; font-size: 0.98rem; }
-  .about-list svg { flex: none; width: 18px; height: 18px; margin-top: 0.2em; color: var(--forest); }
-
-  .team-row { display: flex; gap: var(--sp-3); margin-top: var(--sp-2); flex-wrap: wrap; }
-  .team-card { display: flex; align-items: center; gap: 0.7em; }
-  .avatar {
-    width: 46px; height: 46px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
-    color: var(--cream);
-    flex: none;
-  }
-  .avatar--1 { background: var(--forest); }
-  .avatar--2 { background: var(--oak); }
-  .avatar--3 { background: #8a6a41; }
-  .team-card div span { display: block; font-size: 0.78rem; color: var(--ink-muted); }
-  .team-card div strong { font-size: 0.95rem; }
-
-  .grain-panel {
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius);
-    position: relative;
-    overflow: hidden;
-    background: repeating-linear-gradient(100deg, #d9b077 0 3px, #c4924f 3px 7px, #e3c491 7px 11px, #cf9958 11px 16px);
-    box-shadow: var(--shadow-warm);
-  }
-  .grain-panel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,42,32,0) 45%, rgba(38,42,32,0.5) 100%); }
-  .grain-caption { position: absolute; left: var(--sp-3); bottom: var(--sp-3); z-index: 2; color: var(--cream); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em; }
-
-  /* ---------- Process ---------- */
-
-  .process { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
-  .process::before {
-    content: ""; position: absolute; top: 22px; left: 6%; right: 6%; height: 1.5px;
-    background: repeating-linear-gradient(90deg, var(--oak) 0 10px, transparent 10px 18px);
-  }
-  .process-step { position: relative; display: flex; flex-direction: column; gap: var(--sp-1); }
-  .process-num {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--forest-deep); color: var(--oak-light);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-weight: 600; font-size: 1.1rem;
-    margin-bottom: var(--sp-1); position: relative; z-index: 1;
-  }
-  .process-step h3 { font-size: 1.1rem; font-weight: 600; }
-  .process-step p { color: var(--ink-muted); font-size: 0.92rem; }
-
-  /* ---------- Testimonials ---------- */
-
-  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }
-  .testimonial-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: var(--sp-4);
-    display: flex; flex-direction: column; gap: var(--sp-2);
-  }
-  .stars { display: flex; gap: 0.15em; color: var(--oak); }
-  .stars svg { width: 15px; height: 15px; }
-  .testimonial-card p.quote { font-size: 0.98rem; color: var(--ink); font-style: italic; }
-  .testimonial-who { display: flex; align-items: center; gap: 0.6em; margin-top: auto; }
-  .testimonial-who .avatar { width: 36px; height: 36px; font-size: 0.8rem; }
-  .testimonial-who strong { display: block; font-size: 0.9rem; font-weight: 600; }
-  .testimonial-who span { font-size: 0.8rem; color: var(--ink-muted); }
-
-  /* ---------- USP band ---------- */
-
-  .usp-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
-  .usp-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.6em; }
-  .usp-icon {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: var(--surface); border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--oak-deep);
-  }
-  .usp-icon svg { width: 24px; height: 24px; }
-  .usp-item h3 { font-size: 1rem; font-weight: 600; font-family: var(--font-body); }
-  .usp-item p { font-size: 0.85rem; color: var(--ink-muted); }
-
-  /* ---------- Contact ---------- */
-
-  .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--sp-6); align-items: start; }
-
-  .field { display: flex; flex-direction: column; gap: 0.4em; margin-bottom: var(--sp-2); }
-  .field label { font-size: 0.85rem; font-weight: 500; color: var(--forest-deep); }
-  .field input, .field select, .field textarea {
-    font-family: var(--font-body); font-size: 1rem;
-    padding: 0.8em 0.9em; border-radius: var(--radius);
-    border: 1.5px solid var(--line); background: var(--surface); color: var(--ink);
-    transition: border-color 160ms ease, box-shadow 160ms ease;
-  }
-  .field input::placeholder, .field textarea::placeholder { color: #a9a08a; }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    outline: none; border-color: var(--oak); box-shadow: 0 0 0 3px var(--oak-light);
-  }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); }
-  textarea { resize: vertical; min-height: 120px; }
-  .form-note { font-size: 0.8rem; color: var(--ink-muted); margin-top: var(--sp-1); }
-
-  .info-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: var(--sp-4);
-    display: flex; flex-direction: column; gap: var(--sp-3);
-  }
-  .info-row { display: flex; align-items: flex-start; gap: 0.9em; }
-  .info-row svg { flex: none; width: 20px; height: 20px; color: var(--oak-deep); margin-top: 0.15em; }
-  .info-row div { font-size: 0.95rem; line-height: 1.5; }
-  .info-row .info-label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 0.15em; }
-  .info-card hr { border: none; border-top: 1px solid var(--line); margin: 0; }
-
-  /* ---------- Footer ---------- */
-
-  .site-footer { background: var(--forest-light); border-top: 1px solid var(--line); color: var(--forest-deep); }
-  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--sp-4); padding: var(--sp-5) 0 var(--sp-3); }
-  .footer-brand .brand-mark { color: var(--forest-deep); }
-  .footer-brand p { margin-top: var(--sp-2); font-size: 0.9rem; max-width: 26em; color: var(--ink-muted); }
-  .footer-col h4 { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin: 0 0 var(--sp-2); }
-  .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6em; }
-  .footer-col a, .footer-col li { text-decoration: none; font-size: 0.92rem; color: var(--forest-deep); }
-  .footer-col a:hover { color: var(--oak-deep); }
-  .footer-bottom { border-top: 1px solid var(--line); padding: var(--sp-2) 0 var(--sp-4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-1); font-size: 0.8rem; color: var(--ink-muted); }
-
-  /* ---------- Responsive ---------- */
-
-  @media (max-width: 860px) {
-    .main-nav ul { display: none; }
-    .nav-toggle { display: block; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .services-grid, .portfolio-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
-    .process, .usp-band { grid-template-columns: repeat(2, 1fr); row-gap: var(--sp-4); }
-    .process::before { display: none; }
-    .footer-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
-    .field-row { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 560px) {
-    .services-grid, .portfolio-grid, .testimonial-grid, .usp-band { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; animation: none !important; }
-  }
-</style>
-</head>
-<body>
-
-<header class="site-header" id="siteHeader">
-  <div class="wrap">
-    <a href="#top" class="brand">
-      <span class="brand-mark">Julis <em>Schreinerei</em></span>
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#referenzen">Referenzen</a></li>
-        <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#ablauf">Ablauf</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-      <a href="#kontakt" class="btn btn--primary">Anfrage stellen</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<nav id="mobileNav" class="mobile-nav" hidden>
-  <a href="#leistungen">Leistungen</a>
-  <a href="#referenzen">Referenzen</a>
-  <a href="#ueber-uns">Über uns</a>
-  <a href="#ablauf">Ablauf</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
-
-<main id="top">
-
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <span class="eyebrow">Schreinerei in Lichtenstein · Schwäbische Alb</span>
-      <h1>Handwerk, das <em>trägt</em> — von der Werkstatt bis ins Wohnzimmer</h1>
-      <p class="lead">Julis Schreinerei fertigt Möbel, Innenausbau und Maßarbeiten aus Massivholz — geplant, gebaut und montiert direkt in Lichtenstein, mit einem Blick fürs Detail und dem Anspruch, dass es Generationen hält.</p>
-      <div class="hero-actions">
-        <a href="#kontakt" class="btn btn--primary">Projekt anfragen</a>
-        <a href="#referenzen" class="btn btn--ghost">Referenzen ansehen</a>
-      </div>
-      <div class="trust-strip">
-        <span class="trust-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5.5L20 8.3l-4.2 3.9 1.1 5.8L12 15l-5 3 1.1-5.8L4 8.3l5.6-.8z"></path></svg>
-          Schreinermeisterbetrieb
-        </span>
-        <span class="trust-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2 4 4 8-8 2 2-10 10z"></path></svg>
-          Familienbetrieb seit drei Generationen
-        </span>
-        <span class="trust-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-5 6-5 9a5 5 0 0010 0c0-3-2-6-5-9z"></path></svg>
-          100&nbsp;% Massivholz
-        </span>
-      </div>
-    </div>
-
-    <div class="skyline-wrap">
-      <div class="sun-glow"></div>
-      <svg class="skyline" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
-        <polygon fill="var(--forest-light)" points="0,260 0,210 40,206 70,188 110,192 140,165 180,169 220,144 260,148 300,124 340,131 380,116 420,124 460,178 500,170 520,166 740,166 760,175 800,150 840,158 880,133 920,140 960,116 1000,125 1040,158 1080,154 1120,192 1160,188 1200,213 1200,260" />
-        <polygon fill="var(--forest)" points="0,260 0,232 40,229 90,214 140,224 190,198 240,208 300,180 350,192 420,208 460,232 520,222 740,222 800,206 860,190 920,204 980,182 1040,208 1100,220 1150,214 1200,235 1200,260" opacity="0.5" />
-        <!-- castle on the cliff -->
-        <g fill="var(--forest-deep)">
-          <rect x="560" y="106" width="140" height="60"></rect>
-          <rect x="680" y="116" width="55" height="50"></rect>
-          <rect x="610" y="40" width="44" height="76"></rect>
-          <polygon points="606,40 658,40 632,-4"></polygon>
-          <rect x="518" y="96" width="26" height="70"></rect>
-          <polygon points="514,96 548,96 531,60"></polygon>
-          <rect x="700" y="88" width="26" height="78"></rect>
-          <polygon points="696,88 730,88 713,52"></polygon>
-        </g>
-        <line x1="632" y1="-4" x2="632" y2="-20" stroke="var(--forest-deep)" stroke-width="2" />
-        <polygon fill="var(--oak)" points="632,-20 648,-15 632,-9" />
-      </svg>
-    </div>
-  </section>
-
-  <section id="leistungen" class="section-pad">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Leistungen</span>
-        <h2>Vom Einzelstück bis zum kompletten Innenausbau</h2>
-        <p class="lead">Jedes Projekt beginnt mit Holz, Maß und einem genauen Blick auf den Raum, in dem es später steht.</p>
-      </div>
-
-      <div class="services-grid">
+      <footer>
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div class="muted">© Tröster Haustechnik GmbH & Co. KG</div>
+          <div style="display:flex;gap:12px">
+            <a class="muted" href="https://www.troester-haustechnik.de/impressum">Impressum</a>
+            <a class="muted" href="https://www.troester-haustechnik.de/datenschutz">Datenschutz</a>
+            <a class="muted" href="https://instagram.com/troester_haustechnik" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </footer>
+    </body>
+  </html>
         <article class="service-card">
           <span class="service-tag">Beliebt</span>
           <div class="service-icon">
@@ -900,4 +653,156 @@
 </script>
 
 </body>
+=======
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tröster Haustechnik — Sanitär · Heizung · Bauflaschnerei</title>
+    <meta name="description" content="Tröster Haustechnik GmbH & Co. KG — Meisterbetrieb für Sanitär-, Heizungs- und Flaschnerarbeiten in Lichtenstein-Holzelfingen.">
+    <style>
+      :root{
+        --bg:#f7f7f8;
+        --accent:#0b6b4a;
+        --muted:#6b7280;
+        --card:#ffffff;
+        --radius:8px;
+        --max-width:1100px;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      }
+      *{box-sizing:border-box}
+      body{margin:0;background:var(--bg);color:#111;line-height:1.45}
+      a{color:var(--accent);text-decoration:none}
+      header{background:linear-gradient(180deg,rgba(11,107,74,0.06),transparent);border-bottom:1px solid rgba(11,107,74,0.06)}
+      .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+      .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+      .brand{display:flex;align-items:center;gap:12px}
+      .logo{width:56px;height:56px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+      nav a{margin-left:18px;color:var(--muted);font-weight:600}
+
+      .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:36px 0}
+      .hero-inner{display:flex;flex-direction:column;gap:18px}
+      .h-title{font-size:28px;margin:0}
+      .h-sub{color:var(--muted);margin:0}
+      .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;font-weight:700}
+      .hero-visual{border-radius:12px;overflow:hidden;background:#ddd}
+      .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+      .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+      .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(16,24,40,0.04)}
+      .card h3{margin:0 0 8px 0}
+      .muted{color:var(--muted);font-size:15px}
+
+      .contact{display:flex;flex-direction:column;gap:12px}
+      footer{padding:24px 0;color:var(--muted);font-size:14px}
+
+      @media(min-width:760px){
+        .hero{grid-template-columns:1fr 460px}
+        .h-title{font-size:34px}
+      }
+      @media(max-width:759px){
+        nav a{margin-left:12px;font-size:14px}
+        .grid{grid-template-columns:1fr}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container top">
+        <div class="brand">
+          <div class="logo"><img src="assets/images/logo.svg" alt="Tröster Haustechnik" style="height:56px;display:block"></div>
+          <div>
+            <div style="font-weight:700">Tröster Haustechnik</div>
+            <div class="muted" style="font-size:13px">Sanitär · Heizung · Bauflaschnerei</div>
+          </div>
+        </div>
+        <nav aria-label="Hauptnavigation">
+          <a href="leistungen.html">Leistungen</a>
+          <a href="projekte.html">Projekte</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <h1 id="hero-title" class="h-title">Ihr Meisterbetrieb für Sanitär- und Heizungstechnik</h1>
+          <p class="h-sub">Tröster Haustechnik GmbH & Co. KG — fachkundige Planung, Installation und Wartung für Privat und Gewerbe.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="cta" href="#kontakt">Kostenlos anfragen</a>
+            <a href="#leistungen" style="align-self:center;color:var(--muted);font-weight:600">Mehr zu unseren Leistungen</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <picture>
+            <source srcset="assets/images/hero-1200.jpg 1200w, assets/images/hero-480.jpg 480w" sizes="(min-width:760px) 460px, 100%">
+            <img src="assets/images/hero-1200.jpg" alt="Heizungstechnik">
+          </picture>
+        </div>
+      </section>
+
+      <section id="leistungen">
+        <h2 style="margin-top:28px">Unsere Leistungen</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Heizung</h3>
+            <p class="muted">Planung, Installation und Wartung von Heizungssystemen in Wohn- und Gewerbegebäuden.</p>
+            <p><a href="https://www.troester-haustechnik.de/heizungs-projekte">Unsere Projekte →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Sanitär</h3>
+            <p class="muted">Rohrleitungen, Armaturen und komplette Sanitäranlagen: Toiletten, Waschbecken, Duschen, Badewannen und Spülen.</p>
+            <p><a href="https://www.troester-haustechnik.de/sanit%C3%A4r">Unsere Projekte →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Bauflaschnerei</h3>
+            <p class="muted">Blecharbeiten aus Kupfer, Aluminium und Zink: Dachrinnen, Abdeckungen und Verkleidungen.</p>
+            <p><a href="https://www.troester-haustechnik.de/bauflaschnerei-projekte">Unsere Projekte →</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projekte" style="margin-top:28px">
+        <h2>Ausgewählte Projekte</h2>
+        <div class="grid">
+          <article class="card">
+            <a href="projekte.html"><img src="assets/images/thumbs/heating-463904_1920-600.jpg" alt="Heizung Projekt" style="width:100%;border-radius:6px"></a>
+          </article>
+          <article class="card">
+            <a href="projekte.html"><img src="assets/images/thumbs/pliers-4180918_1920-600.jpg" alt="Flaschnerei Projekt" style="width:100%;border-radius:6px"></a>
+          </article>
+          <article class="card">
+            <a href="projekte.html"><img src="assets/images/thumbs/pexels-photo-3315291-1920w-600.jpg" alt="Sanitär Projekt" style="width:100%;border-radius:6px"></a>
+          </article>
+        </div>
+        <div style="margin-top:12px"><a href="projekte.html" class="cta">Alle Projekte ansehen</a></div>
+      </section>
+
+      <section id="kontakt" style="margin-top:28px">
+        <h2>Kontakt</h2>
+        <div class="card contact" style="max-width:520px">
+          <div style="font-weight:700">Tröster Haustechnik GmbH & Co. KG</div>
+          <div class="muted">Im Städtle 3 · 72805 Lichtenstein-Holzelfingen</div>
+          <div>Telefon: <a href="tel:071296009501">07129/6009501</a></div>
+          <div>Email: <a href="mailto:info@troester-haustechnik.de">info@troester-haustechnik.de</a></div>
+          <div class="muted">Geschäftszeiten: Mo–Fr 08:30–17:00</div>
+          <div style="margin-top:8px"><a class="cta" href="mailto:info@troester-haustechnik.de">E-Mail schreiben</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="muted">© Tröster Haustechnik GmbH & Co. KG</div>
+        <div style="display:flex;gap:12px">
+          <a class="muted" href="https://www.troester-haustechnik.de/impressum">Impressum</a>
+          <a class="muted" href="https://www.troester-haustechnik.de/datenschutz">Datenschutz</a>
+          <a class="muted" href="https://instagram.com/troester_haustechnik" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+>>>>>>> 0e86765 (Redesign: modern responsive homepage, add gallery, thumbnails, pages (leistungen/projekte/kontakt), SVG logo and image assets)
 </html>

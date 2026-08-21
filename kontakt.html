@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt — Tröster Haustechnik</title>
+    <style>
+      :root{--bg:#f7f7f8;--accent:#0b6b4a}
+      body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#111}
+      .container{max-width:800px;margin:0 auto;padding:24px}
+      label{display:block;margin-top:12px}
+      input,textarea{width:100%;padding:10px;border-radius:6px;border:1px solid #ddd}
+      button{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:none;margin-top:12px}
+    </style>
+  </head>
+  <body>
+    <header class="container"><a href="index.html">← Zurück</a></header>
+    <main class="container">
+      <h1>Kontakt</h1>
+      <p>Tröster Haustechnik GmbH & Co. KG<br>Im Städtle 3 · 72805 Lichtenstein-Holzelfingen</p>
+      <p>Telefon: <a href="tel:071296009501">07129/6009501</a><br>Email: <a href="mailto:info@troester-haustechnik.de">info@troester-haustechnik.de</a></p>
+
+      <h2>Nachricht senden</h2>
+      <form action="mailto:info@troester-haustechnik.de" method="get">
+        <label>Name <input name="name" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Nachricht <textarea name="message" rows="6" required></textarea></label>
+        <button type="submit">Absenden</button>
+      </form>
+    </main>
+    <footer style="padding:24px;text-align:center;color:#777">© Tröster Haustechnik</footer>
+  </body>
+</html>
