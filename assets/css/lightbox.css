@@ -1,0 +1,5 @@
+.lb-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:9999;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s}
+.lb-overlay.open{opacity:1;visibility:visible}
+.lb-overlay img{max-width:94%;max-height:86%;box-shadow:0 8px 30px rgba(0,0,0,0.6);border-radius:8px}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:20px;background:rgba(0,0,0,0.25);border-radius:8px;padding:6px 10px;cursor:pointer}
+.lb-caption{position:absolute;left:24px;right:24px;bottom:30px;color:#fff;text-align:center;font-size:14px}
