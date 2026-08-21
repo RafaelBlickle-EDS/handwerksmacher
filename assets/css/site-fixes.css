@@ -1,0 +1,12 @@
+/* Small fixes applied across pages */
+header .container{padding-left:18px;padding-right:18px}
+nav{display:flex;gap:12px;align-items:center}
+@media(max-width:600px){
+  nav{gap:10px;font-size:15px}
+  .hero{padding:20px 0}
+  .hero-visual{order:2}
+  .hero-inner{order:1}
+}
+.grid{gap:16px}
+.card{padding:16px}
+.hero-visual img{min-height:180px}
