@@ -7,6 +7,8 @@
     <meta name="description" content="Tröster Haustechnik GmbH & Co. KG — Meisterbetrieb für Sanitär-, Heizungs- und Flaschnerarbeiten in Lichtenstein-Holzelfingen.">
     <link rel="icon" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="assets/css/site-fixes.css">
+    <link rel="preload" href="assets/images/hero-1200.jpg" as="image">
+    <link rel="preload" href="assets/images/webp/Icon.webp" as="image" type="image/webp">
     <style>
       :root{
         --bg:#f7f7f8;
@@ -91,10 +93,10 @@
           </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
-          <picture>
-            <source srcset="assets/images/hero-1200.jpg 1200w, assets/images/hero-480.jpg 480w" sizes="(min-width:760px) 460px, 100%">
-            <img src="assets/images/hero-1200.jpg" alt="Heizungstechnik">
-          </picture>
+            <picture>
+              <source srcset="assets/images/hero-1200.jpg 1200w, assets/images/hero-480.jpg 480w" sizes="(min-width:760px) 460px, 100%">
+              <img src="assets/images/hero-1200.jpg" alt="Heizungstechnik" loading="eager" decoding="async">
+            </picture>
         </div>
       </section>
 
