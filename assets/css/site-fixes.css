@@ -10,3 +10,18 @@ nav{display:flex;gap:12px;align-items:center}
 .grid{gap:16px}
 .card{padding:16px}
 .hero-visual img{min-height:180px}
+
+/* Make header sticky across pages so navigation is always available */
+header{
+  position:sticky;
+  top:0;
+  z-index:1200;
+  background:rgba(247,247,248,0.92);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 6px 18px rgba(16,24,40,0.06);
+  border-bottom:1px solid rgba(11,107,74,0.04);
+}
+
+/* Ensure header content doesn't overlap when anchored links are used */
+main{scroll-margin-top:84px}
