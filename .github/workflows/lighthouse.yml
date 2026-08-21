@@ -1,0 +1,35 @@
+name: Lighthouse Audit
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install http-server
+        run: npm install -g http-server
+
+      - name: Start static server
+        run: |
+          npx http-server -p 8080 -c-1 &
+          sleep 1
+
+      - name: Run Lighthouse (headless)
+        run: |
+          npx -y lighthouse http://127.0.0.1:8080 --output=html --output-path=./lighthouse-report.html --chrome-flags="--no-sandbox --headless"
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: ./lighthouse-report.html
